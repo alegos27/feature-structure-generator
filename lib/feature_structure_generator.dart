@@ -52,14 +52,15 @@ void generate({
     final fileNames = templates[dir];
     if (fileNames != null) {
       for (final fileName in fileNames) {
-        final templateFile = File.fromUri(templatesUri.replace(pathSegments: [...dir.split('/'), fileName]));
+        final templateFileUri = templatesUri.replace(pathSegments: [...dir.split('/'), fileName]);
+        final templateFile = File.fromUri(templateFileUri);
         final newFile = File('${directory.path}/${featureName}_$fileName');
 
         // Check if template file exists before copying
         if (templateFile.existsSync()) {
           templateFile.copySync(newFile.path);
         } else {
-          print('Template file $fileName does not exist in $templatesUri');
+          print('Template file $fileName does not exist in $templateFileUri');
           return;
         }
       }
@@ -68,12 +69,13 @@ void generate({
 
   // Copy test template file
   final testFileName = '${featureName}_test.dart';
-  final testTemplateFile = File.fromUri(templatesUri.replace(pathSegments: ['test', 'test_template.dart']));
+  final templateTestFileUri = templatesUri.replace(pathSegments: ['test', 'test_template.dart']);
+  final testTemplateFile = File.fromUri(templateTestFileUri);
   final newTestFile = File('$testFeatureDir/$testFileName');
   if (testTemplateFile.existsSync()) {
     testTemplateFile.copySync(newTestFile.path);
   } else {
-    print('Test template file $testFileName does not exist in $templatesUri');
+    print('Test template file $testFileName does not exist in $templateTestFileUri');
     return;
   }
 
