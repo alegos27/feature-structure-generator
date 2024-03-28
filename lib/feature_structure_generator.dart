@@ -7,8 +7,8 @@ void generate({
   String baseStateClassPath = '../../../../../../common/data/models/states/_base_state.dart',
   String baseNotifierClassName = 'BaseNotifier',
   String baseNotifierClassPath = '../../../../../../common/data/providers/_base_notifier.dart',
-  String notifierStatusEnumName = 'NotifierStatus',
-  String notifierStatusEnumPath = '../../../../../../common/data/provider/_notifier_status.dart',
+  String notifierStatusEnumName = 'BaseNotifierStatus',
+  String notifierStatusEnumPath = '../../../../../../common/data/providers/_base_notifier_status.dart',
 }) async {
   final templatesUri = await Isolate.resolvePackageUri(Uri.parse('package:feature_structure_generator/templates/'));
   if (templatesUri == null) {
@@ -84,8 +84,8 @@ void generate({
   // Define replacements
   final replacements = <String, String>{
     'template_base_state.dart': baseStateClassPath,
-    'template_notifier_status.dart': notifierStatusEnumPath,
     'template_base_notifier.dart': baseNotifierClassPath,
+    '../../providers/template_base_notifier_status.dart': notifierStatusEnumPath,
     '../models/states/template_state.dart': '../models/states/${featureName}_template_state.dart',
     '../repositories/template_repository.dart': '../repositories/${featureName}_template_repository.dart',
     'template_state.freezed.dart': '${featureName}_template_state.freezed.dart',
@@ -93,7 +93,7 @@ void generate({
     'template_model.g.dart': '${featureName}_template_model.g.dart',
     'BaseState': baseStateClassName,
     'BaseNotifier': baseNotifierClassName,
-    'NotifierStatus': notifierStatusEnumName,
+    'BaseNotifierStatus': notifierStatusEnumName,
   };
 
   // Apply replacements to the specific files

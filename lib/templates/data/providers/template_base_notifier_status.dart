@@ -1,4 +1,4 @@
-enum NotifierStatus {
+enum BaseNotifierStatus {
   ready,
   loading,
   loadingNext,

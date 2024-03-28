@@ -12,8 +12,8 @@ void main(List<String> arguments) {
     ..addOption('baseStateClassPath', defaultsTo: '../../../../../../common/data/models/states/_base_state.dart')
     ..addOption('baseNotifierClassName', defaultsTo: 'BaseNotifier')
     ..addOption('baseNotifierClassPath', defaultsTo: '../../../../../../common/data/providers/_base_notifier.dart')
-    ..addOption('notifierStatusEnumName', defaultsTo: 'NotifierStatus')
-    ..addOption('notifierStatusEnumPath', defaultsTo: '../../../../../../common/data/provider/_notifier_status.dart');
+    ..addOption('notifierStatusEnumName', defaultsTo: 'BaseNotifierStatus')
+    ..addOption('notifierStatusEnumPath', defaultsTo: '../../../../../../common/data/providers/_base_notifier_status.dart');
 
   var argResults = parser.parse(arguments);
 

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'template_base_state.dart';
-import 'template_notifier_status.dart';
+import '../../providers/template_base_notifier_status.dart';
 
 part 'template_state.freezed.dart';
 
@@ -10,15 +10,15 @@ class TemplateState with _$TemplateState implements BaseState {
   const TemplateState._();
 
   const factory TemplateState({
-    @Default(NotifierStatus.loading) NotifierStatus status,
+    @Default(BaseNotifierStatus.loading) BaseNotifierStatus status,
   }) = _TemplateState;
 
   @override
-  bool get isLoading => status == NotifierStatus.loading;
+  bool get isLoading => status == BaseNotifierStatus.loading;
   @override
-  bool get isLoadingNext => status == NotifierStatus.loadingNext;
+  bool get isLoadingNext => status == BaseNotifierStatus.loadingNext;
   @override
-  bool get isSending => status == NotifierStatus.sending;
+  bool get isSending => status == BaseNotifierStatus.sending;
   @override
-  bool get isReady => status == NotifierStatus.ready;
+  bool get isReady => status == BaseNotifierStatus.ready;
 }
