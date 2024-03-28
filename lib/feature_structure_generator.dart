@@ -47,7 +47,7 @@ void generate({
     final fileNames = templates[dir];
     if (fileNames != null) {
       for (final fileName in fileNames) {
-        final templateFile = File.fromUri(templatesUri!.replace(pathSegments: [fileName]));
+        final templateFile = File.fromUri(templatesUri!.replace(pathSegments: [dir, fileName]));
         final newFile = File('${directory.path}/${featureName}_$fileName');
 
         // Check if template file exists before copying
