@@ -11,7 +11,7 @@ void generate({
   String notifierStatusEnumPath = 'common/data/provider/_notifier_status.dart',
 }) async {
   final templatesUri = await Isolate.resolvePackageUri(Uri.parse('package:feature_structure_generator/templates/'));
-  if(templatesUri == null) {
+  if (templatesUri == null) {
     print('Error resolving templates package URI');
     return;
   }
@@ -52,7 +52,7 @@ void generate({
     final fileNames = templates[dir];
     if (fileNames != null) {
       for (final fileName in fileNames) {
-        final templateFileUri = Uri(path: templatesUri.path, pathSegments: [...dir.split('/'), fileName]);
+        final templateFileUri = Uri(path: '${templatesUri.path}/$dir/$fileName');
         final templateFile = File.fromUri(templateFileUri);
         final newFile = File('${directory.path}/${featureName}_$fileName');
 
@@ -69,7 +69,7 @@ void generate({
 
   // Copy test template file
   final testFileName = '${featureName}_test.dart';
-  final templateTestFileUri = templatesUri.replace(path: templatesUri.path, pathSegments: ['test', 'test_template.dart']);
+  final templateTestFileUri = Uri(path: '${templatesUri.path}/test/test_template.dart');
   final testTemplateFile = File.fromUri(templateTestFileUri);
   final newTestFile = File('$testFeatureDir/$testFileName');
   if (testTemplateFile.existsSync()) {
