@@ -1,0 +1,202 @@
+.
+├── common
+│   ├── constants
+│   │   ├── amplify_configuration.dart
+│   │   ├── env.dart
+│   │   ├── env_development.dart
+│   │   ├── env_production.dart
+│   │   ├── env_staging.dart
+│   │   ├── firebase_options.dart
+│   │   ├── icons.dart
+│   │   ├── navigator_keys.dart
+│   │   ├── storage_keys.dart
+│   │   └── theme.dart
+│   ├── data
+│   │   ├── gql
+│   │   ├── models
+│   │   │   ├── api_response.dart
+│   │   │   ├── states
+│   │   │   │   ├── _base_state.dart
+│   │   │   │   ├── app_storage_state.dart
+│   │   │   │   ├── app_storage_state.freezed.dart
+│   │   │   │   ├── auth_state.dart
+│   │   │   │   ├── auth_state.freezed.dart
+│   │   │   │   ├── user_state.dart
+│   │   │   │   └── user_state.freezed.dart
+│   │   │   ├── user.dart
+│   │   │   ├── user.freezed.dart
+│   │   │   └── user.g.dart
+│   │   ├── providers
+│   │   │   ├── _base_notifier.dart
+│   │   │   ├── _base_notifier_status.dart
+│   │   │   ├── app_storage_provider.dart
+│   │   │   ├── auth_provider.dart
+│   │   │   ├── routing_provider.dart
+│   │   │   └── user_provider.dart
+│   │   └── repositories
+│   │       ├── auth_repository.dart
+│   │       ├── unauth_repository.dart
+│   │       └── user_repository.dart
+│   ├── services
+│   │   ├── app_tracking_transparency_service.dart
+│   │   ├── error_handlers
+│   │   │   ├── message_popup_service.dart
+│   │   │   └── message_service.dart
+│   │   ├── firebase
+│   │   │   ├── crashlytics_service.dart
+│   │   │   ├── messaging_service.dart
+│   │   │   ├── performance_service.dart
+│   │   │   └── remote_config_service.dart
+│   │   ├── gql
+│   │   │   └── gql_api_service.dart
+│   │   ├── mixpanel
+│   │   │   └── analytics_service.dart
+│   │   ├── rest
+│   │   │   ├── rest_api_service.dart
+│   │   │   └── dio
+│   │   │       ├── dio_api.dart
+│   │   │       └── dio_api_interceptor.dart
+│   │   └── talsec_security_secrvice.dart
+│   ├── utils
+│   │   ├── color_utils.dart
+│   │   ├── date_utils.dart
+│   │   ├── logger.dart
+│   │   ├── string_utils.dart
+│   │   └── validation_regex.dart
+│   └── views
+│       ├── screens
+│       │   ├── design_system_screen.dart
+│       │   ├── error_route_screen.dart
+│       │   ├── html_rendering_screen.dart
+│       │   ├── info_screen.dart
+│       │   ├── json_screen.dart
+│       │   ├── main_screen.dart
+│       │   └── splash_screen.dart
+│       └── widgets
+│           ├── animations
+│           │   ├── animated_opacity.dart
+│           │   └── animated_scale.dart
+│           ├── app_bar.dart
+│           ├── bottom_navigation_bar.dart
+│           ├── check_box.dart
+│           ├── chip.dart
+│           ├── confetti.dart
+│           ├── empty_state.dart
+│           ├── image.dart
+│           ├── loading_indicator.dart
+│           ├── modal_bottom_sheet.dart
+│           ├── progress_bar.dart
+│           ├── radio_button.dart
+│           ├── slider.dart
+│           ├── slider_indicator.dart
+│           ├── small_language_picker.dart
+│           ├── switch.dart
+│           ├── tab_bar.dart
+│           ├── tag.dart
+│           ├── video.dart
+│           ├── buttons
+│           │   ├── back_button.dart
+│           │   ├── close_button.dart
+│           │   ├── favorite_toggle.dart
+│           │   ├── icon_button.dart
+│           │   ├── primary_button.dart
+│           │   ├── secondary_button.dart
+│           │   ├── small_button.dart
+│           │   ├── text_button.dart
+│           │   ├── sign_in_with_apple_button.dart
+│           │   ├── sign_in_with_facebook.dart
+│           │   └── sign_in_with_google.dart
+│           ├── dismissible_keyboard.dart
+│           ├── html
+│           │   ├── auto_size_text_html.dart
+│           │   └── html.dart
+│           ├── inputs
+│           │   ├── code_input.dart
+│           │   ├── country_picker.dart
+│           │   ├── date_picker.dart
+│           │   ├── search_bar.dart
+│           │   ├── searchable_select.dart
+│           │   ├── text_area.dart
+│           │   └── text_field.dart
+│           ├── maps
+│           │   ├── image_marker.dart
+│           │   ├── map.dart
+│           │   └── marker_generator.dart
+│           └── messengers
+│               ├── popup.dart
+│               └── snackbar.dart
+├── core
+│   ├── app.dart
+│   └── bootstrap.dart
+├── features
+│   ├── authentication
+│   │   ├── data
+│   │   │   ├── gql
+│   │   │   ├── models
+│   │   │   │   └── states
+│   │   │   ├── providers
+│   │   │   └── repositories
+│   │   └── views
+│   │       ├── screens
+│   │       │   ├── confirmation_code_screen.dart
+│   │       │   ├── sign_in_screen.dart
+│   │       │   └── sign_up_screen.dart
+│   │       └── widgets
+│   ├── home
+│   │   ├── data
+│   │   │   ├── gql
+│   │   │   ├── models
+│   │   │   │   └── states
+│   │   │   ├── providers
+│   │   │   └── repositories
+│   │   └── views
+│   │       ├── screens
+│   │       │   └── home_screen.dart
+│   │       └── widgets
+│   ├── onboarding
+│   │   ├── data
+│   │   │   ├── gql
+│   │   │   ├── models
+│   │   │   │   └── states
+│   │   │   ├── providers
+│   │   │   └── repositories
+│   │   └── views
+│   │       ├── screens
+│   │       │   └── welcome_screen.dart
+│   │       └── widgets
+│   │           ├── onboarding_card.dart
+│   │           └── parental_control_modal.dart
+│   └── profile
+│       ├── data
+│       │   ├── gql
+│       │   ├── models
+│       │   │   └── states
+│       │   ├── providers
+│       │   └── repositories
+│       └── views
+│           ├── screens
+│           │   └── profile_screen.dart
+│           └── widgets
+├── gen
+│   ├── assets.gen.dart
+│   ├── colors.gen.dart
+│   └── fonts.gen.dart
+├── l10n
+│   ├── arb
+│   │   ├── intl_de.arb
+│   │   ├── intl_en.arb
+│   │   ├── intl_es.arb
+│   │   ├── intl_fr.arb
+│   │   └── intl_it.arb
+│   ├── intl
+│   │   ├── messages_all.dart
+│   │   ├── messages_de.dart
+│   │   ├── messages_en.dart
+│   │   ├── messages_es.dart
+│   │   ├── messages_fr.dart
+│   │   └── messages_it.dart
+│   ├── l10n.dart
+│   └── resolutions.dart
+├── main_development.dart
+├── main_production.dart
+├── main_staging.dart
