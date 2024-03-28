@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:isolate';
 
 void generate({
   required String featureName,
@@ -9,8 +10,7 @@ void generate({
   String notifierStatusEnumName = 'NotifierStatus',
   String notifierStatusEnumPath = 'common/data/provider/_notifier_status.dart',
 }) async {
-  final templatesPath = 'package:feature_structure_generator/templates';
-
+  final templatesUri = await Isolate.resolvePackageUri(Uri.parse('package:feature_structure_generator/templates/'));
   final featureDir = 'lib/features/$featureName';
   final testFeatureDir = 'test/features/$featureName';
 
@@ -47,14 +47,14 @@ void generate({
     final fileNames = templates[dir];
     if (fileNames != null) {
       for (final fileName in fileNames) {
-        final templateFile = File('$templatesPath/$dir/$fileName');
+        final templateFile = File.fromUri(templatesUri!.replace(pathSegments: [fileName]));
         final newFile = File('${directory.path}/${featureName}_$fileName');
 
         // Check if template file exists before copying
         if (templateFile.existsSync()) {
           templateFile.copySync(newFile.path);
         } else {
-          print('Template file $fileName does not exist in $templatesPath');
+          print('Template file $fileName does not exist in $templatesUri');
         }
       }
     }
@@ -62,12 +62,12 @@ void generate({
 
   // Copy test template file
   final testFileName = '${featureName}_test.dart';
-  final testTemplateFile = File('$templatesPath/test/test_template.dart');
+  final testTemplateFile = File.fromUri(templatesUri!.replace(pathSegments: ['test', 'test_template.dart']));
   final newTestFile = File('$testFeatureDir/$testFileName');
   if (testTemplateFile.existsSync()) {
     testTemplateFile.copySync(newTestFile.path);
   } else {
-    print('Test template file $testFileName does not exist in $templatesPath');
+    print('Test template file $testFileName does not exist in $templatesUri');
   }
 
   print('Feature structure for "$featureName" created successfully with templates.');

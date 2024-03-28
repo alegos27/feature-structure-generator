@@ -8,7 +8,6 @@ void main(List<String> arguments) {
   }
 
   final parser = ArgParser()
-    ..addOption('featureName', abbr: 'f', help: 'The name of the feature to generate.')
     ..addOption('baseStateClassName', defaultsTo: 'BaseState')
     ..addOption('baseStateClassPath', defaultsTo: 'common/data/models/states/_base_state.dart')
     ..addOption('baseNotifierClassName', defaultsTo: 'BaseNotifier')
