@@ -4,11 +4,11 @@ import 'dart:isolate';
 void generate({
   required String featureName,
   String baseStateClassName = 'BaseState',
-  String baseStateClassPath = 'common/data/models/states/_base_state.dart',
+  String baseStateClassPath = '../../../../../../common/data/models/states/_base_state.dart',
   String baseNotifierClassName = 'BaseNotifier',
-  String baseNotifierClassPath = 'common/data/providers/_base_notifier.dart',
+  String baseNotifierClassPath = '../../../../../../common/data/providers/_base_notifier.dart',
   String notifierStatusEnumName = 'NotifierStatus',
-  String notifierStatusEnumPath = 'common/data/provider/_notifier_status.dart',
+  String notifierStatusEnumPath = '../../../../../../common/data/provider/_notifier_status.dart',
 }) async {
   final templatesUri = await Isolate.resolvePackageUri(Uri.parse('package:feature_structure_generator/templates/'));
   if (templatesUri == null) {

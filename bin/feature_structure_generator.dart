@@ -9,11 +9,11 @@ void main(List<String> arguments) {
 
   final parser = ArgParser()
     ..addOption('baseStateClassName', defaultsTo: 'BaseState')
-    ..addOption('baseStateClassPath', defaultsTo: 'common/data/models/states/_base_state.dart')
+    ..addOption('baseStateClassPath', defaultsTo: '../../../../../../common/data/models/states/_base_state.dart')
     ..addOption('baseNotifierClassName', defaultsTo: 'BaseNotifier')
-    ..addOption('baseNotifierClassPath', defaultsTo: 'common/data/providers/_base_notifier.dart')
+    ..addOption('baseNotifierClassPath', defaultsTo: '../../../../../../common/data/providers/_base_notifier.dart')
     ..addOption('notifierStatusEnumName', defaultsTo: 'NotifierStatus')
-    ..addOption('notifierStatusEnumPath', defaultsTo: 'common/data/provider/_notifier_status.dart');
+    ..addOption('notifierStatusEnumPath', defaultsTo: '../../../../../../common/data/provider/_notifier_status.dart');
 
   var argResults = parser.parse(arguments);
 
